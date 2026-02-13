@@ -1,0 +1,866 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syeda Eraj Nadeem - Digital Marketing Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f4c75;
+            --highlight: #3282b8;
+            --text: #e8e8e8;
+            --text-muted: #a8a8b3;
+            --card-bg: #252836;
+            --gradient-start: #667eea;
+            --gradient-end: #764ba2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 4rem 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--highlight);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--highlight);
+        }
+
+        .btn-secondary:hover {
+            background: var(--highlight);
+            transform: translateY(-3px);
+        }
+
+        /* Section Headers */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-category {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(102, 126, 234, 0.15);
+            color: var(--gradient-start);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-link {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .project-link:hover {
+            color: var(--gradient-start);
+            transform: translateX(5px);
+        }
+
+        .project-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transition: width 0.3s ease;
+        }
+
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-metrics {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metric-icon {
+            width: 8px;
+            height: 8px;
+            background: var(--highlight);
+            border-radius: 50%;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--highlight);
+            margin-right: 0.3rem;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(102, 126, 234, 0.2);
+            color: var(--gradient-start);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .contact-section {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Syeda Eraj Nadeem</h1>
+                <p class="subtitle">Digital Marketing Strategist & Growth Driver</p>
+                <p class="tagline">
+                    Transforming data into actionable strategies • Scaling platforms to serve 40,000+ users • 
+                    Driving 60% traffic growth through SEO mastery
+                </p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">Traffic Growth</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">40K+</span>
+                        <span class="stat-label">Users Impacted</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">On-Time Delivery</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    A showcase of impactful digital marketing campaigns and platform developments 
+                    across education, SaaS, real estate, and e-commerce sectors
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Education Projects -->
+                <div class="project-card">
+                    <span class="project-category">Education Tech</span>
+                    <h3 class="project-title">
+                        <a href="https://spectrumverse.ai" target="_blank" class="project-link">SpectrumVerse.ai ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Automated tutoring platform revolutionizing student onboarding and learning workflows 
+                        for Spectrum Tuition with AI-powered automation.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">35%</span>
+                            <span class="metric-label">Efficiency Gain</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Full Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-category">Education Tech</span>
+                    <h3 class="project-title">
+                        <a href="https://spectrumbooks.com.au" target="_blank" class="project-link">SpectrumBooks.com.au ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Developed comprehensive platform serving 40,000 schools with white-label book 
+                        ordering system, transforming educational distribution at scale.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40,000</span>
+                            <span class="metric-label">Schools Served</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Manual Work Reduced</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SaaS Projects -->
+                <div class="project-card">
+                    <span class="project-category">SaaS Platform</span>
+                    <h3 class="project-title">
+                        <a href="https://spectrumdigital.ai" target="_blank" class="project-link">SpectrumDigital.ai ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Engineered full-stack SaaS products with automation infrastructure, enabling 
+                        seamless transactions and exceptional platform performance.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">35%</span>
+                            <span class="metric-label">Performance Boost</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-category">SaaS Platform</span>
+                    <h3 class="project-title">
+                        <a href="https://alienx.ai" target="_blank" class="project-link">AlienX.ai ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Led strategic campaign management with advanced automation, accelerating project 
+                        delivery timelines while maintaining exceptional quality standards.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Faster Delivery</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Strategic Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Projects -->
+                <div class="project-card">
+                    <span class="project-category">Digital Marketing</span>
+                    <h3 class="project-title">
+                        <a href="https://gofundyourself.show" target="_blank" class="project-link">GoFundYourself.show ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Executed comprehensive media buying and multi-channel campaigns across social 
+                        media and email, driving massive audience engagement.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">45%</span>
+                            <span class="metric-label">Engagement Increase</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Lead Growth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-category">Digital Marketing</span>
+                    <h3 class="project-title">
+                        <a href="https://glowbuddy.co" target="_blank" class="project-link">GlowBuddy.co ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Developed and automated beauty platform with targeted email campaigns, 
+                        enhancing user interaction and streamlining customer workflows.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">30%</span>
+                            <span class="metric-label">Workflow Optimization</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Full Design & Dev</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-category">Digital Marketing</span>
+                    <h3 class="project-title">
+                        <a href="https://wiselifeco.com" target="_blank" class="project-link">WiseLifeCo.com ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Designed and automated platform with comprehensive SEO, content marketing, 
+                        and digital campaigns driving substantial traffic growth.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Traffic Increase</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">SEO & Content</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Estate Projects -->
+                <div class="project-card">
+                    <span class="project-category">Real Estate</span>
+                    <h3 class="project-title">
+                        <a href="https://gainpropertygroup.com" target="_blank" class="project-link">GainPropertyGroup.com ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Built and marketed comprehensive real estate platform end-to-end, managing SEO, 
+                        content, social media, email campaigns, and media buying.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">40%</span>
+                            <span class="metric-label">Lead Generation</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Full-Stack Marketing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-category">Real Estate</span>
+                    <h3 class="project-title">
+                        <a href="https://gogreatdane.com" target="_blank" class="project-link">GoGreatDane.com ↗</a>
+                    </h3>
+                    <p class="project-description">
+                        Developed and executed comprehensive digital marketing strategy for real estate 
+                        platform, significantly boosting conversion rates and sales performance.
+                    </p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-value">35%</span>
+                            <span class="metric-label">Sales Increase</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-icon"></span>
+                            <span class="metric-label">Conversion Focus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Core Expertise</h2>
+                <p class="section-subtitle">
+                    A comprehensive skill set spanning digital marketing strategy, technical implementation, 
+                    and data-driven optimization
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Digital Marketing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SEO/SEM</span>
+                        <span class="skill-tag">Content Strategy</span>
+                        <span class="skill-tag">Email Marketing</span>
+                        <span class="skill-tag">Social Media</span>
+                        <span class="skill-tag">Media Buying</span>
+                        <span class="skill-tag">Campaign Management</span>
+                        <span class="skill-tag">A/B Testing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Analytics & Optimization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">KPI Tracking</span>
+                        <span class="skill-tag">Performance Metrics</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Conversion Rate Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Technical & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Marketing Automation</span>
+                        <span class="skill-tag">CMS Platforms</span>
+                        <span class="skill-tag">UI/UX Strategy</span>
+                        <span class="skill-tag">Full-Stack Coordination</span>
+                        <span class="skill-tag">SaaS Products</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Project & Team Leadership</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile Methodology</span>
+                        <span class="skill-tag">Cross-Functional Teams</span>
+                        <span class="skill-tag">Client Management</span>
+                        <span class="skill-tag">Stakeholder Relations</span>
+                        <span class="skill-tag">Workflow Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-section">
+                <h2>Let's Create Something Amazing</h2>
+                <p>Ready to drive growth and transform your digital presence?</p>
+                <div class="contact-links">
+                    <a href="mailto:syedaerajn@gmail.com" class="contact-link">
+                        📧 syedaerajn@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/eraj-nadeem/" target="_blank" class="contact-link">
+                        💼 LinkedIn Profile
+                    </a>
+                    <a href="tel:+923193373350" class="contact-link">
+                        📱 +92-319-3373350
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Syeda Eraj Nadeem. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                Digital Marketing Strategist | Growth Driver | Marketing Analytics Expert
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
