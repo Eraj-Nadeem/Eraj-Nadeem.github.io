@@ -19,10 +19,11 @@
     --slate:#6B675C;
     --line:#DAD5C6;
     --line-soft:#E7E2D4;
-    --max:760px;
+    --max:1160px;
+    --max-text:760px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);}
   body{
     margin:0;
     background:var(--paper);
@@ -30,7 +31,6 @@
     font-family:'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     font-size:16px;
     line-height:1.6;
-    padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
     -webkit-font-smoothing:antialiased;
   }
@@ -39,6 +39,7 @@
   a:focus-visible, button:focus-visible{ outline:2px solid var(--navy); outline-offset:3px; }
 
   .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+  @media (min-width:900px){ .wrap{ padding:0 48px; } }
 
   h1,h2,h3{ font-family:'Fraunces', Georgia, serif; font-weight:600; margin:0; color:var(--navy); }
 
@@ -48,18 +49,28 @@
     background:rgba(246,244,238,.88);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top,0px);
   }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px; }
-  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--navy); }
-  .navlinks{ display:flex; gap:22px; list-style:none; margin:0; padding:0; }
-  .navlinks a{ text-decoration:none; font-size:.92rem; color:var(--slate); border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s; }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+    gap:16px;
+  }
+  .brand{ flex:0 0 auto; font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; text-decoration:none; color:var(--navy); }
+  .navlinks{
+    display:flex; gap:22px; list-style:none; margin:0; padding:0;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .navlinks::-webkit-scrollbar{ display:none; }
+  .navlinks li{ flex:0 0 auto; }
+  .navlinks a{ text-decoration:none; font-size:.92rem; color:var(--slate); border-bottom:1px solid transparent; padding-bottom:2px; white-space:nowrap; transition:color .15s, border-color .15s; }
   .navlinks a:hover{ color:var(--navy); border-color:var(--amber); }
-  @media (max-width:560px){ .navlinks{ display:none; } }
+  @media (max-width:560px){ .navlinks{ gap:16px; } }
 
   /* ---------- HERO ---------- */
   header.hero{ padding:64px 0 56px; }
   .hero-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:center; }
-  @media (max-width:720px){ .hero-grid{ grid-template-columns:1fr; } }
+  @media (max-width:720px){ .hero-grid{ grid-template-columns:1fr; gap:32px; } }
 
   .eyebrow{ font-size:.95rem; color:var(--slate); margin-bottom:10px; }
   .hero h1{ font-size:clamp(2.4rem, 5.4vw, 3.4rem); line-height:1.05; letter-spacing:-0.01em; }
@@ -79,9 +90,9 @@
 
   /* ---------- IMPACT STRIP ---------- */
   .impact{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:28px 0; }
-  .impact-row{ display:flex; flex-wrap:wrap; }
+  .impact-row{ display:flex; flex-wrap:wrap; margin:0 -24px; }
   .impact-item{ flex:1 1 150px; padding:6px 24px; border-left:1px solid var(--line-soft); }
-  .impact-item:first-child{ border-left:none; padding-left:0; }
+  .impact-item:first-child{ border-left:none; }
   .impact-item .num{ font-family:'Fraunces', serif; font-weight:600; font-size:1.9rem; color:var(--navy); font-variant-numeric:tabular-nums; }
   .impact-item .label{ font-size:.85rem; color:var(--slate); margin-top:2px; }
 
@@ -118,11 +129,13 @@
   .tag{ border:1px solid var(--line); border-radius:3px; padding:6px 12px; font-size:.86rem; color:var(--ink); background:#fff; }
 
   /* ---------- FOOTER ---------- */
-  footer{ background:var(--navy-2); color:var(--paper); padding:64px 0 48px; }
-  footer h2{ color:var(--paper); font-size:clamp(1.8rem,4.4vw,2.6rem); max-width:14ch; }
-  footer .foot-sub{ margin-top:14px; color:#C9D2DE; max-width:52ch; font-size:1.02rem; }
-  footer .contact-row a{ color:#EAD9B8; border-color:rgba(234,217,184,.35); }
+  footer{ background:var(--navy-2); color:var(--paper); padding:64px 0 48px; text-align:center; }
+  footer h2{ color:var(--paper); font-size:clamp(1.8rem,4.4vw,2.6rem); max-width:14ch; margin:0 auto; }
+  footer .foot-sub{ margin:14px auto 0; color:#C9D2DE; max-width:52ch; font-size:1.02rem; }
+  footer .contact-row{ justify-content:center; }
+  footer .contact-row a{ display:inline-flex; align-items:center; gap:8px; color:#EAD9B8; border-color:rgba(234,217,184,.35); }
   footer .contact-row a:hover{ border-color:var(--amber); }
+  footer .contact-row a svg{ width:16px; height:16px; flex:0 0 auto; stroke:currentColor; }
   footer .copyright{ margin-top:44px; font-size:.8rem; color:#8FA0B8; }
 
   :root:not([data-theme="light"]){ }
@@ -338,9 +351,18 @@
     <h2>Let's build something worth measuring.</h2>
     <p class="foot-sub">Open to content strategy, project management, and AI-adjacent roles — remote or Karachi-based. The fastest way to reach me is email.</p>
     <div class="contact-row" style="margin-top:28px;">
-      <a href="mailto:syedaerajn@gmail.com">syedaerajn@gmail.com</a>
-      <a href="tel:+923193373350">+92 319 3373350</a>
-      <a href="https://linkedin.com/in/eraj-nadeem" target="_blank" rel="noopener">linkedin.com/in/eraj-nadeem</a>
+      <a href="mailto:syedaerajn@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        syedaerajn@gmail.com
+      </a>
+      <a href="tel:+923193373350">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        +92 319 3373350
+      </a>
+      <a href="https://linkedin.com/in/eraj-nadeem" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M12 13a2.5 2.5 0 0 1 5 0v3"/></svg>
+        linkedin.com/in/eraj-nadeem
+      </a>
     </div>
     <div class="copyright">© 2026 Syeda Eraj Nadeem. Built for eraj-nadeem.github.io.</div>
   </div>
