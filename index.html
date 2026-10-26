@@ -683,10 +683,19 @@ const lb=$('#lb')[0],li=$('img',lb)[0],lc=$('figcaption',lb)[0];
 $('.im,.g,.pic').forEach(b=>b.addEventListener('click',()=>{const i=$('img',b)[0];li.src=i.src;li.alt=i.alt;lc.textContent=b.dataset.cap||'';lb.showModal()}));
 $('.x',lb)[0].onclick=()=>lb.close();lb.onclick=e=>{if(e.target===lb)lb.close()};
 
-// contact form opens the visitor's email app
-$('#cf')[0].onsubmit=async e=>{e.preventDefault();const f=e.target,b=$('button',f)[0],st=$('#cfs')[0],mt='mailto:syedaerajn@gmail.com?subject='+encodeURIComponent('Portfolio message from '+f.n.value)+'&body='+encodeURIComponent(f.m.value+'\n\n'+f.n.value+' ('+f.e.value+')');b.disabled=true;b.textContent='Sending...';st.className='';st.textContent='';
-try{const r=await fetch('https://formsubmit.co/ajax/syedaerajn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({name:f.n.value,email:f.e.value,message:f.m.value,_subject:'New portfolio message from '+f.n.value,_replyto:f.e.value,_template:'table',_captcha:'false'})});const j=await r.json();if(!r.ok||j.success==='false'||j.success===false)throw 0;f.reset();st.className='ok';st.textContent='Thank you, your message has been sent.'}catch(x){st.className='er';st.textContent='Could not send directly, opening your email app instead.';setTimeout(()=>{location.href=mt},900)}b.disabled=false;b.textContent='Send message'};
-
+fetch('https://formsubmit.co/ajax/ea48e1a218548230e2d6674f905896ac', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+        name: f.n.value,
+        email: f.e.value,
+        message: f.m.value,
+        _subject: 'New portfolio message from ' + f.n.value,
+        _replyto: f.e.value,
+        _template: 'table',
+        _captcha: 'false'
+    })
+})
 // creative layer: cursor spotlight, stat accent bars, animated bars, image tilt
 $('.st,.pj,.mini .card,.xc').forEach(c=>{c.classList.add('sp');c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});c.addEventListener('pointerleave',()=>{c.style.setProperty('--mx','-999px')})});
 const g2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add(e.target.classList.contains('st')?'lit':'go');g2.unobserve(e.target)}}),{threshold:.4});
