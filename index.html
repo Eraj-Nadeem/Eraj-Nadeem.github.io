@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Syeda Eraj Nadeem — Project Manager</title>
+<title>Syeda Eraj Nadeem — Content Strategist &amp; Project Manager</title>
 <meta name="description" content="Content strategist, project manager, and applied AI enthusiast. 8+ years turning growth problems into systems that scale.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✒️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -403,9 +403,15 @@ footer{margin-top:0;border-top:1px solid rgba(255,255,255,.12)}
 /* prominent project numbering */
 .pj{overflow:visible;margin-top:40px}
 .pj::before{content:"PROJECT " counter(pj,decimal-leading-zero);position:absolute;left:28px;top:-22px;right:auto;height:44px;padding:0 20px;display:flex;align-items:center;border-radius:999px;background:var(--navy);color:#5CE0CC;font:800 1rem 'Plus Jakarta Sans',sans-serif;letter-spacing:.08em;box-shadow:4px 4px 0 var(--blue);z-index:3}
-.pj::after{content:counter(pj,decimal-leading-zero);position:absolute;right:24px;top:2px;font:800 7.5rem/1 'Plus Jakarta Sans',sans-serif;color:transparent;-webkit-text-stroke:2px rgba(11,122,112,.4);pointer-events:none;z-index:0}
 .pj>*{position:relative;z-index:1}
-@media(max-width:700px){.pj::after{font-size:4.5rem}}
+
+/* remove big outlined numerals; fix odometer digits inside project stat tiles */
+.pj::after{display:none!important;content:none!important}
+.kp b span{display:inline-block;margin:0;max-width:none;font-size:inherit;line-height:1;color:inherit}
+.kp b .od{height:1em;overflow:hidden;vertical-align:top}
+.kp b .ds{display:flex;flex-direction:column}
+.kp b .ds i{display:block;height:1em;line-height:1}
+.kp b{white-space:nowrap}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -511,7 +517,7 @@ footer{margin-top:0;border-top:1px solid rgba(255,255,255,.12)}
       <div class="vis multi"><button class="im" type="button" data-cap="Sale price and area distribution"><img data-k="hist" alt="Histograms of sale price and area distribution"></button><div class="sub"><button class="im" type="button" data-cap="Median sale price by city"><img data-k="city" alt="Bar chart of median sale price by city"></button></div></div>
       <div><span class="badge">Aug 2026 – Oct 2026</span><h3>Decoding Pakistan’s Real Estate Market: An Analysis of 18,000+ Listings</h3><div class="m">NED University of Engineering and Technology</div>
         <p>Exploratory Data Analysis of property listings from Zameen.com, Pakistan’s largest real estate portal. The goal was to understand what drives property prices across cities and property types.</p>
-        <div class="kp"><div><b data-odo="18,000+">0</b><span>listings cleaned</span></div><div><b data-odo="4.59">0</b><span>Crore PKR, average sale price</span></div><div><b data-odo="2.80">0</b><span>Crore PKR, median sale price</span></div></div>
+        <div class="kp"><div><b>18,000+</b><span>listings cleaned</span></div><div><b>4.59</b><span>Crore PKR, average sale price</span></div><div><b>2.80</b><span>Crore PKR, median sale price</span></div></div>
         <div class="gap"><h4>The skew behind the finding</h4><div class="gr" style="--k:0"><span>Average</span><i style="--w:100;--k:0"></i><b>4.59</b></div><div class="gr y" style="--k:1"><span>Median</span><i style="--w:61;--k:1"></i><b>2.80</b></div><p>PKR Crore. A few luxury listings drag the mean about 64% above the typical sale price.</p></div>
         <ul class="bl"><li>Cleaned about 18,000 raw listings: removed duplicates and broken rows, and fixed invalid room counts</li><li>Converted text prices (Crore, Lakh) and areas (Marla, Kanal) into numbers, so I could run real statistics</li><li>Analysed sale listings only, because rent and sale prices are on different scales, and removed extreme price-per-sq-ft values as likely entry errors</li><li>Built bar charts and histograms to compare listings, prices and areas by city and property type</li><li>Main finding: a small number of luxury listings pull the average price up, so the median is a better measure of a typical price</li></ul>
         <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Google Colab</span></div></div>
@@ -520,7 +526,7 @@ footer{margin-top:0;border-top:1px solid rgba(255,255,255,.12)}
       <div class="vis multi"><button class="im" type="button" data-cap="Executive dashboard in Excel"><img data-k="xl1" alt="Excel executive dashboard with KPIs, charts and slicers"></button><button class="im" type="button" data-cap="Pivot-based analysis in Excel"><img data-k="xl2" alt="Excel analysis sheet with pivot tables and charts"></button></div>
       <div><span class="badge">Apr 2026 – May 2026</span><h3>Social Media Advertising Analytics Dashboard (Excel)</h3><div class="m">atomcamp · 15,000+ campaigns</div>
         <p>Analyzed 15,000+ social media ad campaigns across Facebook, Instagram, Pinterest, and Twitter for a digital marketing agency. Built a complete end-to-end analytics solution in Excel covering data cleaning, KPI tracking, pivot-based analysis, and an interactive executive dashboard with slicers.</p>
-        <div class="kp"><div><b data-odo="15,000+">0</b><span>campaigns analysed</span></div><div><b data-odo="4.40">0</b><span>top engagement score (Increase Sales)</span></div><div><b data-odo="$24M">0</b><span>top ad spend (Las Vegas)</span></div></div>
+        <div class="kp"><div><b>15,000+</b><span>campaigns analysed</span></div><div><b>4.40</b><span>top engagement score (Increase Sales)</span></div><div><b>$24M</b><span>top ad spend (Las Vegas)</span></div></div>
         <div class="gap"><h4>Avg engagement score by goal (out of 10)</h4><div class="gr" style="--k:0"><span>Increase Sales</span><i style="--w:44;--k:0"></i><b>4.40</b></div><div class="gr" style="--k:1"><span>Market Exp.</span><i style="--w:43.8;--k:1"></i><b>4.38</b></div><div class="gr" style="--k:2"><span>Brand Aware.</span><i style="--w:43.2;--k:2"></i><b>4.32</b></div><div class="gr" style="--k:3"><span>Product Launch</span><i style="--w:42.7;--k:3"></i><b>4.27</b></div></div>
         <ul class="bl"><li>Cleaned a 15K+ row dataset: removed duplicates, split demographics, fixed data types, and engineered new columns (Net Profit, Clicks/Day)</li><li>Built pivot-based analysis covering campaign performance, engagement scoring, monthly click trends, and acquisition cost distribution</li><li>Designed an interactive dashboard with slicers for Location, Channel, Campaign Goal, and Customer Segment</li><li>Increase Sales had the highest engagement score (4.40); Las Vegas led total ad spend at ~$24M</li></ul>
         <div class="tags"><span class="tag">Microsoft Excel</span><span class="tag">Data Cleaning</span><span class="tag">Pivot Tables</span><span class="tag">Dashboards</span></div></div>
@@ -683,19 +689,10 @@ const lb=$('#lb')[0],li=$('img',lb)[0],lc=$('figcaption',lb)[0];
 $('.im,.g,.pic').forEach(b=>b.addEventListener('click',()=>{const i=$('img',b)[0];li.src=i.src;li.alt=i.alt;lc.textContent=b.dataset.cap||'';lb.showModal()}));
 $('.x',lb)[0].onclick=()=>lb.close();lb.onclick=e=>{if(e.target===lb)lb.close()};
 
-fetch('https://formsubmit.co/ajax/ea48e1a218548230e2d6674f905896ac', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({
-        name: f.n.value,
-        email: f.e.value,
-        message: f.m.value,
-        _subject: 'New portfolio message from ' + f.n.value,
-        _replyto: f.e.value,
-        _template: 'table',
-        _captcha: 'false'
-    })
-})
+// contact form opens the visitor's email app
+$('#cf')[0].onsubmit=async e=>{e.preventDefault();const f=e.target,b=$('button',f)[0],st=$('#cfs')[0],mt='mailto:syedaerajn@gmail.com?subject='+encodeURIComponent('Portfolio message from '+f.n.value)+'&body='+encodeURIComponent(f.m.value+'\n\n'+f.n.value+' ('+f.e.value+')');b.disabled=true;b.textContent='Sending...';st.className='';st.textContent='';
+try{const r=await fetch('https://formsubmit.co/ajax/ea48e1a218548230e2d6674f905896ac',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({name:f.n.value,email:f.e.value,message:f.m.value,_subject:'New portfolio message from '+f.n.value,_replyto:f.e.value,_template:'table',_captcha:'false'})});const j=await r.json();if(!r.ok||j.success==='false'||j.success===false)throw 0;f.reset();st.className='ok';st.textContent='Thank you, your message has been sent.'}catch(x){st.className='er';st.textContent='Could not send directly, opening your email app instead.';setTimeout(()=>{location.href=mt},900)}b.disabled=false;b.textContent='Send message'};
+
 // creative layer: cursor spotlight, stat accent bars, animated bars, image tilt
 $('.st,.pj,.mini .card,.xc').forEach(c=>{c.classList.add('sp');c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')});c.addEventListener('pointerleave',()=>{c.style.setProperty('--mx','-999px')})});
 const g2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add(e.target.classList.contains('st')?'lit':'go');g2.unobserve(e.target)}}),{threshold:.4});
